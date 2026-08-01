@@ -1,20 +1,20 @@
-# Cursor Chat Skills
+# Cline Skills
 
-Portable skill files for Cursor Copilot that work **across all projects**, not tied to any single codebase.
+Portable skill files for Cline/Copilot that work **across all projects**, not tied to any single codebase.
 
-## Quick Install (works in ALL Cursor projects)
+## Quick Install (works in ALL Cline projects)
 
 ```bash
-# Clone the skills repository into Cursor's global skills directory
+# Clone the skills repository into Cline's global skills directory
 mkdir -p ~/.cursor/skills
-git clone https://github.com/tsunami216/cursor-chat-skills.git ~/.cursor/skills/cursor-chat-skills
+git clone https://github.com/tsunami216/cline-skills.git ~/.cursor/skills/cline-skills
 
-# Copy rules to Cursor's global rules directory
+# Copy rules to Cline's global rules directory
 mkdir -p ~/.cursor/rules
-cp ~/.cursor/skills/cursor-chat-skills/rules/*.md ~/.cursor/rules/
+cp ~/.cursor/skills/cline-skills/rules/*.md ~/.cursor/rules/
 ```
 
-After installation, skills and rules are **automatically available in every project** you open in Cursor.
+After installation, skills and rules are **automatically available in every project** you open in Cline/Cursor.
 
 ## Structure
 
@@ -36,7 +36,7 @@ After installation, skills and rules are **automatically available in every proj
 
 ## How Skills Work
 
-Skills are loaded by Cursor Copilot when relevant prompts are detected. Each `.md` file defines:
+Skills are loaded by Cline/Cursor Copilot when relevant prompts are detected. Each `.md` file defines:
 
 1. **Trigger conditions** — what user messages or code patterns activate this skill
 2. **Role definition** — what knowledge/context the AI should have when active
@@ -45,10 +45,10 @@ Skills are loaded by Cursor Copilot when relevant prompts are detected. Each `.m
 
 ## Cross-Project Compatibility
 
-These skills are **not specific to cursor-chat**. They work in any project because:
+These skills are **not specific to any single project**. They work in any project because:
 
 - Skills live in `~/.cursor/skills/` (global), not inside any project folder
-- The `api-verification.md` rule loads universally across all Cursor sessions
+- The `api-verification.md` rule loads universally across all Cline/Cursor sessions
 - Future projects auto-inherit these skills when installed globally
 
 ## Adding New Skills
@@ -62,4 +62,4 @@ To contribute a new skill:
 
 ## Repository
 
-https://github.com/tsunami216/cursor-chat-skills
+https://github.com/tsunami216/cline-skills
