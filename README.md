@@ -1,34 +1,65 @@
 # Cursor Chat Skills
 
-Portable skill files for Cursor Copilot. Each `.md` file defines a skill that enhances AI assistant behavior in Cursor.
+Portable skill files for Cursor Copilot that work **across all projects**, not tied to any single codebase.
+
+## Quick Install (works in ALL Cursor projects)
+
+```bash
+# Clone the skills repository into Cursor's global skills directory
+mkdir -p ~/.cursor/skills
+git clone https://github.com/tsunami216/cursor-chat-skills.git ~/.cursor/skills/cursor-chat-skills
+
+# Copy rules to Cursor's global rules directory
+mkdir -p ~/.cursor/rules
+cp ~/.cursor/skills/cursor-chat-skills/rules/*.md ~/.cursor/rules/
+```
+
+After installation, skills and rules are **automatically available in every project** you open in Cursor.
 
 ## Structure
 
-- `skills/` — individual skill definitions
-- `rules/` — behavioral rules for AI instances
+- `skills/` — individual skill definitions (domain-specific behaviors)
+- `rules/` — behavioral rules that apply universally to all AI instances
 
 ## Skills
 
 | File | Description |
 |------|-------------|
-| [cursor-workspace-images.md](skills/cursor-workspace-images.md) | Download and display AI-generated images from Cursor workspace into the Android app |
-| [delete-agent.md](skills/delete-agent.md) | Delete chat threads/agents from Cursor server (with verification warnings for unverified endpoints) |
+| [cursor-workspace-images.md](skills/cursor-workspace-images.md) | Download and display AI-generated images from Cursor workspace into the Android app. Trigger: image generation, "Generated again" text, workspace file mentions. |
+| [delete-agent.md](skills/delete-agent.md) | Delete chat threads/agents from Cursor server with verification warnings for unverified endpoints. Trigger: "how do I delete this", "remove agent", "clear chat history". |
 
 ## Rules
 
 | File | Description |
 |------|-------------|
-| [api-verification.md](rules/api-verification.md) | Mandatory protocol: check official documentation before claiming third-party API behavior |
+| [api-verification.md](rules/api-verification.md) | **Mandatory protocol**: check official documentation before claiming third-party API behavior. Requires `[UNVERIFIED]` prefix on unverified claims, `⚠️ UNVERIFIED` markers in code, and recommends manual verification. |
 
-## Installation
+## How Skills Work
 
-1. Clone this repository into Cursor's global `.cursor/skills/` directory:
-   ```bash
-   mkdir -p ~/.cursor/skills
-   git clone https://github.com/tsunami216/cursor-chat-skills.git ~/.cursor/skills/cursor-chat-skills
-   ```
-2. Open Cursor — skills are automatically loaded on relevant prompts.
+Skills are loaded by Cursor Copilot when relevant prompts are detected. Each `.md` file defines:
 
-## License
+1. **Trigger conditions** — what user messages or code patterns activate this skill
+2. **Role definition** — what knowledge/context the AI should have when active
+3. **Instructions** — step-by-step guidance for responding to the user
+4. **Examples** — Q&A pairs showing correct behavior
 
-MIT
+## Cross-Project Compatibility
+
+These skills are **not specific to cursor-chat**. They work in any project because:
+
+- Skills live in `~/.cursor/skills/` (global), not inside any project folder
+- The `api-verification.md` rule loads universally across all Cursor sessions
+- Future projects auto-inherit these skills when installed globally
+
+## Adding New Skills
+
+To contribute a new skill:
+
+1. Create a `.md` file following the same structure as existing skills
+2. Place it in the `skills/` directory
+3. Update this README's table with a description
+4. Commit and push to this repository
+
+## Repository
+
+https://github.com/tsunami216/cursor-chat-skills
