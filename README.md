@@ -1,65 +1,70 @@
 # Cline Skills
 
-Portable skill files for Cline/Copilot that work **across all projects**, not tied to any single codebase.
+Portable skill files for **Cline** and **Cursor** that work across all projects and machines.
 
-## Quick Install (works in ALL Cline projects)
+Repository: https://github.com/tsunami216/cline-skills
+
+## Quick install (new machine)
 
 ```bash
-# Clone the skills repository into Cline's global skills directory
-mkdir -p ~/.cursor/skills
-git clone https://github.com/tsunami216/cline-skills.git ~/.cursor/skills/cline-skills
+# 1) Clone (or pull) the hub
+mkdir -p ~/Documents
+git clone https://github.com/tsunami216/cline-skills.git ~/Documents/cline-skills
+# or: cd ~/Documents/cline-skills && git pull
 
-# Copy rules to Cline's global rules directory
-mkdir -p ~/.cursor/rules
-cp ~/.cursor/skills/cline-skills/rules/*.md ~/.cursor/rules/
+# 2) Install into Cursor global skills + rules
+bash ~/Documents/cline-skills/scripts/install-local.sh
 ```
 
-After installation, skills and rules are **automatically available in every project** you open in Cline/Cursor.
+`install-local.sh` links/copies:
+
+| Source in this repo | Local destination |
+|---------------------|-------------------|
+| `cursor/*/SKILL.md` | `~/.cursor/skills/<name>/SKILL.md` |
+| `skills/*.md` | available under `~/.cursor/skills/cline-skills/skills/` |
+| `rules/*.md` | `~/.cursor/rules/` and (optional) `~/Documents/Cline/Rules/` |
 
 ## Structure
 
-- `skills/` — individual skill definitions (domain-specific behaviors)
-- `rules/` — behavioral rules that apply universally to all AI instances
+```
+skills/     Flat Cline-compatible skill markdown
+rules/      Universal behavioral rules
+cursor/     Native Cursor Agent skills (SKILL.md folders)
+scripts/    install-local.sh — sync this repo → this machine
+```
 
 ## Skills
 
 | File | Description |
 |------|-------------|
-| [cursor-workspace-images.md](skills/cursor-workspace-images.md) | Download and display AI-generated images from Cursor workspace into the Android app. Trigger: image generation, "Generated again" text, workspace file mentions. |
-| [delete-agent.md](skills/delete-agent.md) | Delete chat threads/agents from Cursor server with verification warnings for unverified endpoints. Trigger: "how do I delete this", "remove agent", "clear chat history". |
+| [validate-changes.md](skills/validate-changes.md) | After code updates: acceptance criteria → targeted tests/smoke → Proven/Untested/Blocked report |
+| [cursor-workspace-images.md](skills/cursor-workspace-images.md) | Download/display Cursor workspace generated images |
+| [delete-agent.md](skills/delete-agent.md) | Delete Cursor chat threads/agents (with API verification warnings) |
+| [android-app-signing.md](skills/android-app-signing.md) | Android release signing workflow |
+| [ollama-image-generator.md](skills/ollama-image-generator.md) | Ollama image generation helpers |
+
+## Cursor-native skills
+
+| Folder | Description |
+|--------|-------------|
+| [cursor/validate-changes](cursor/validate-changes/SKILL.md) | Same as validate-changes, Cursor Agent format |
+| [cursor/execution-review](cursor/execution-review/SKILL.md) | Plan gap/risk review; patch same plan file in place |
 
 ## Rules
 
 | File | Description |
 |------|-------------|
-| [api-verification.md](rules/api-verification.md) | **Mandatory protocol**: check official documentation before claiming third-party API behavior. Requires `[UNVERIFIED]` prefix on unverified claims, `⚠️ UNVERIFIED` markers in code, and recommends manual verification. |
+| [api-verification.md](rules/api-verification.md) | Check official docs before claiming third-party API behavior |
+| [execution-review.md](rules/execution-review.md) | Execution-review rule (Cline flat form) |
 
-## How Skills Work
+## Updating from a machine that edited local skills
 
-Skills are loaded by Cline/Cursor Copilot when relevant prompts are detected. Each `.md` file defines:
+1. Edit `~/.cursor/skills/<name>/SKILL.md` (or Cline Rules)
+2. Copy back into this repo (`cursor/` and/or `skills/` / `rules/`)
+3. Update this README table if you added a skill
+4. `git commit && git push`
+5. On other machines: `git pull && bash scripts/install-local.sh`
 
-1. **Trigger conditions** — what user messages or code patterns activate this skill
-2. **Role definition** — what knowledge/context the AI should have when active
-3. **Instructions** — step-by-step guidance for responding to the user
-4. **Examples** — Q&A pairs showing correct behavior
+## License
 
-## Cross-Project Compatibility
-
-These skills are **not specific to any single project**. They work in any project because:
-
-- Skills live in `~/.cursor/skills/` (global), not inside any project folder
-- The `api-verification.md` rule loads universally across all Cline/Cursor sessions
-- Future projects auto-inherit these skills when installed globally
-
-## Adding New Skills
-
-To contribute a new skill:
-
-1. Create a `.md` file following the same structure as existing skills
-2. Place it in the `skills/` directory
-3. Update this README's table with a description
-4. Commit and push to this repository
-
-## Repository
-
-https://github.com/tsunami216/cline-skills
+MIT

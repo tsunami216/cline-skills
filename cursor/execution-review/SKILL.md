@@ -1,6 +1,14 @@
-# Execution Review
+---
+name: execution-review
+description: >-
+  Critically reviews the current implementation plan for gaps, risks, and
+  mitigations, then validates plan steps against the repository source code.
+  Always patches the same original plan file in place — never CreatePlan or a
+  new plan file. Use when the user says "execution review", asks for a plan
+  risk review, plan gap analysis, or pre-implementation plan validation.
+---
 
-<!-- Description: Critically reviews the current implementation plan for gaps, risks, and mitigations, then validates plan steps against the repository source code. Always patches the same original plan file in place — never CreatePlan or a new plan file. Use when the user says "execution review", asks for a plan risk review, plan gap analysis, or pre-implementation plan validation. -->
+# Execution Review
 
 When the user says **execution review** (or equivalent), review the **current plan** before implementation. Do not implement the plan unless the user explicitly asks after the review.
 
