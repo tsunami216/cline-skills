@@ -42,6 +42,7 @@ scripts/    install-local.sh — sync this repo → this machine
 | [delete-agent.md](skills/delete-agent.md) | Delete Cursor chat threads/agents (with API verification warnings) |
 | [android-app-signing.md](skills/android-app-signing.md) | Android release signing workflow |
 | [ollama-image-generator.md](skills/ollama-image-generator.md) | Ollama image generation helpers |
+| [memory-bank.md](skills/memory-bank.md) | Update/follow Memory Bank: scan all six core files every time |
 
 ## Cursor-native skills
 
@@ -49,6 +50,7 @@ scripts/    install-local.sh — sync this repo → this machine
 |--------|-------------|
 | [cursor/validate-changes](cursor/validate-changes/SKILL.md) | Same as validate-changes, Cursor Agent format |
 | [cursor/execution-review](cursor/execution-review/SKILL.md) | Plan gap/risk review; patch same plan file in place |
+| [cursor/memory-bank](cursor/memory-bank/SKILL.md) | Memory Bank: read/update all six files on initialize/update/follow |
 
 ## Rules
 
