@@ -21,20 +21,6 @@ if [[ -d "$ROOT/cursor" ]]; then
   done
 fi
 
-# Second Brain vault snapshot (PARA notes + lessons)
-LOCAL_VAULT="${HOME}/Documents/SecondBrain"
-REPO_VAULT="$ROOT/second-brain"
-if [[ -d "$REPO_VAULT" ]]; then
-  mkdir -p "$LOCAL_VAULT"
-  rsync -a --ignore-existing --exclude '.DS_Store' --exclude '.obsidian' \
-    "$REPO_VAULT/" "$LOCAL_VAULT/" 2>/dev/null || cp -Rn "$REPO_VAULT/." "$LOCAL_VAULT/" 2>/dev/null || true
-  echo "  ✓ Second Brain vault → ~/Documents/SecondBrain (missing files only)"
-  mkdir -p "${HOME}/.claude"
-  cat > "${HOME}/.claude/second-brain.config.json" <<EOF
-{"vaultPath": "${HOME}/Documents/SecondBrain", "structure": "PARA"}
-EOF
-fi
-
 # Keep a clone/checkout pointer for flat skills under ~/.cursor/skills/cline-skills
 LINK="$CURSOR_SKILLS/cline-skills"
 if [[ -L "$LINK" || -d "$LINK" ]]; then

@@ -23,16 +23,14 @@ bash ~/Documents/cline-skills/scripts/install-local.sh
 | `cursor/*/SKILL.md` | `~/.cursor/skills/<name>/SKILL.md` |
 | `skills/*.md` | available under `~/.cursor/skills/cline-skills/skills/` |
 | `rules/*.md` | `~/.cursor/rules/` and (optional) `~/Documents/Cline/Rules/` |
-| `second-brain/` | `~/Documents/SecondBrain` (PARA vault; missing files only) |
 
 ## Structure
 
 ```
-skills/         Flat Cline-compatible skill markdown
-rules/          Universal behavioral rules
-cursor/         Native Cursor Agent skills (SKILL.md folders)
-second-brain/   PARA vault snapshot (lessons, architecture, capture)
-scripts/        install-local.sh, sync-second-brain.sh
+skills/     Flat Cline-compatible skill markdown
+rules/      Universal behavioral rules
+cursor/     Native Cursor Agent skills (SKILL.md folders)
+scripts/    install-local.sh — sync this repo → this machine
 ```
 
 ## Skills
@@ -53,7 +51,6 @@ scripts/        install-local.sh, sync-second-brain.sh
 | [cursor/validate-changes](cursor/validate-changes/SKILL.md) | Same as validate-changes, Cursor Agent format |
 | [cursor/execution-review](cursor/execution-review/SKILL.md) | Plan gap/risk review; patch same plan file in place |
 | [cursor/memory-bank](cursor/memory-bank/SKILL.md) | Memory Bank: read/update all six files on initialize/update/follow |
-| [cursor/second-brain](cursor/second-brain/SKILL.md) | Capture/search `~/Documents/SecondBrain` (PARA + lessons) |
 
 ## Rules
 
@@ -61,22 +58,6 @@ scripts/        install-local.sh, sync-second-brain.sh
 |------|-------------|
 | [api-verification.md](rules/api-verification.md) | Check official docs before claiming third-party API behavior |
 | [execution-review.md](rules/execution-review.md) | Execution-review rule (Cline flat form) |
-
-## Second Brain vault
-
-Snapshot of `~/Documents/SecondBrain` (Markdown PARA notes, SCCAnalyzer architecture/lessons, skill copies under `3-Resources/Tools/cline-skills/`).
-
-```bash
-# After editing notes locally, publish:
-bash ~/Documents/cline-skills/scripts/sync-second-brain.sh export
-cd ~/Documents/cline-skills && git add second-brain cursor/second-brain && git commit && git push
-
-# Other machine:
-git pull && bash scripts/install-local.sh
-# or: bash scripts/sync-second-brain.sh import
-```
-
-`import` / `install-local.sh` copy **missing files only** so they do not overwrite newer notes on that machine.
 
 ## Updating from a machine that edited local skills
 
