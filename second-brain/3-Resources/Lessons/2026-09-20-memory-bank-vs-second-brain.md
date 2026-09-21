@@ -27,3 +27,4 @@ After a painful bug or architectural decision: write a short lesson note here th
 ## Related
 - Vault: `AGENTS.md`, Cursor skill `~/.cursor/skills/second-brain`
 - Portable skills hub: `tsunami216/cline-skills`
+- Cursor Chat project notes: `../../1-Projects/CursorChat/_project.md`

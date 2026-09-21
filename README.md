@@ -64,7 +64,7 @@ scripts/        install-local.sh, sync-second-brain.sh
 
 ## Second Brain vault
 
-Snapshot of `~/Documents/SecondBrain` (Markdown PARA notes, SCCAnalyzer architecture/lessons, skill copies under `3-Resources/Tools/cline-skills/`).
+Snapshot of `~/Documents/SecondBrain` (Markdown PARA notes, SCCAnalyzer + Cursor Chat architecture/lessons, skill copies under `3-Resources/Tools/cline-skills/`).
 
 ```bash
 # After editing notes locally, publish:

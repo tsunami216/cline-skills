@@ -35,6 +35,7 @@ Operating contract: read `AGENTS.md` in that vault first.
 ```
 ~/Documents/SecondBrain/0-Inbox/
 ~/Documents/SecondBrain/1-Projects/SCCAnalyzer/
+~/Documents/SecondBrain/1-Projects/CursorChat/
 ~/Documents/SecondBrain/3-Resources/Lessons/
 ~/Documents/SecondBrain/AGENTS.md
 ```

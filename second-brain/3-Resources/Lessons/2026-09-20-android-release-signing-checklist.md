@@ -22,3 +22,4 @@ Release path: clean → assembleRelease → apksigner verify → install -r → 
 
 ## Related
 - SCCAnalyzer: `android/sccanalyzer/app/build.gradle.kts`, cursor_chat keystore fallback
+- Cursor Chat: `adb install -r` signed 1.0.17 over 1.0.16 (`com.cursorchat.app`)

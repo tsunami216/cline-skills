@@ -27,9 +27,9 @@ Agents (Cursor / Claude) should treat this folder as durable memory outside any 
 
 See `AGENTS.md` (operating contract) and the Cursor skill `~/.cursor/skills/second-brain/SKILL.md`.
 
-## Relation to SCCAnalyzer `memory-bank/`
+## Relation to repo `memory-bank/`
 
-- **Repo `memory-bank/`** = current project state for that codebase (git-tracked).
+- **Repo `memory-bank/` / `.memory-bank/`** = current project state for that codebase (git-tracked).
 - **This Second Brain** = personal / cross-project memory (not tied to one git tip).
 
 Do not duplicate entire memory-bank here; link or distill lessons instead.
@@ -39,4 +39,13 @@ Do not duplicate entire memory-bank here; link or distill lessons instead.
 - Status: `1-Projects/SCCAnalyzer/_project.md`
 - Architecture: `1-Projects/SCCAnalyzer/architecture.md`
 - Reusable lessons index: `3-Resources/SCCAnalyzer-patterns-index.md`
+
+## Cursor Chat entry points (updated 2026-09-20)
+
+- Status: `1-Projects/CursorChat/_project.md`
+- Architecture: `1-Projects/CursorChat/architecture.md`
+- Reusable lessons index: `3-Resources/CursorChat-patterns-index.md`
+
+## Tools
+
 - Personal skills snapshot: `3-Resources/Tools/cline-skills/`
