@@ -4,13 +4,16 @@ description: >-
   Capture, search, triage, and log lessons in the local Second Brain vault at
   ~/Documents/SecondBrain (PARA). Use when the user says second brain, capture,
   inbox, lesson learned, remember this, triage notes, or asks for past decisions
-  / historical lessons outside a single repo memory-bank.
+  / historical lessons outside a single repo memory-bank. Lessons that mention
+  SCCAnalyzer or other apps are examples only — apply patterns to the CURRENT
+  project; do not edit those example repos unless the user is working in them.
 ---
 
 # Second Brain
 
 Vault: `~/Documents/SecondBrain` (expand `$HOME`; created by `scripts/install-local.sh`)  
-Operating contract: read `AGENTS.md` in that vault first.
+Operating contract: **always read `AGENTS.md` in that vault first** (especially the
+READ-ONLY example-project rules).
 
 ## Commands (natural language)
 
@@ -21,7 +24,7 @@ Operating contract: read `AGENTS.md` in that vault first.
 | Decision | Write under project or `3-Resources/` using `templates/decision.md` |
 | Search / recall | `Grep` / `Glob` under the vault; quote paths in the answer |
 | Triage inbox | Propose moves Inbox → Projects/Areas/Resources/Archive; ask before bulk moves |
-| Project note | Update `1-Projects/<Name>/` |
+| Project note | Update `1-Projects/<Name>/` **only if that project is the active workspace or explicitly named by the user** |
 
 ## Rules
 
@@ -29,13 +32,19 @@ Operating contract: read `AGENTS.md` in that vault first.
 2. No secrets in the vault.
 3. Do not replace a git repo’s `memory-bank/` — distill cross-cutting lessons here instead.
 4. Confirm the file path after writing.
+5. **Example apps are not the work target.** SCCAnalyzer, CursorChat, OllamaConfigurator,
+   etc. in this vault are **case studies**. Apply the **pattern** to the user’s
+   **current** application. Do **not** modify those example repos, their
+   `memory-bank/`, or rebuild/install them unless the user is clearly working in
+   that repo or explicitly asked.
+6. Citation paths in lessons (`agents/remote_queue.py`, …) are **origin examples** —
+   find the equivalent in the current codebase.
 
 ## Quick paths
 
 ```
-~/Documents/SecondBrain/0-Inbox/
-~/Documents/SecondBrain/1-Projects/SCCAnalyzer/
-~/Documents/SecondBrain/1-Projects/CursorChat/
-~/Documents/SecondBrain/3-Resources/Lessons/
 ~/Documents/SecondBrain/AGENTS.md
+~/Documents/SecondBrain/0-Inbox/
+~/Documents/SecondBrain/3-Resources/Lessons/
+~/Documents/SecondBrain/3-Resources/SCCAnalyzer-patterns-index.md   # examples → apply elsewhere
 ```

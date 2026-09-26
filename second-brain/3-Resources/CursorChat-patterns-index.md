@@ -7,6 +7,9 @@ tags: [patterns, index, cursor-chat]
 
 # Cross-program patterns distilled from Cursor Chat
 
+**EXAMPLE SOURCE ONLY.** Apply patterns to the **current** app — do **not** edit the origin project unless that is the active workspace or the user asked by name.
+
+
 Start here for another **mobile Cloud Agents** or long-running Android network client.
 
 1. [Context meter: no cacheReadTokens](./Lessons/2026-09-20-cloud-agents-context-meter-no-cache-reads.md)

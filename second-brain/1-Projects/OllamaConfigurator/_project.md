@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-24
 tags: [ollama, desktop, python, customtkinter, pyinstaller]
 project: OllamaConfigurator
 ---
@@ -54,4 +54,6 @@ Settings: `~/.config/ollama-configurator/config.json` (Windows: `%APPDATA%\…`)
 
 - [[architecture]] → `architecture.md` (this folder)
 - Lesson: [[../../3-Resources/Lessons/2026-09-20-ollama-vram-context-gpu-cpu|Ollama VRAM / context / GPU vs CPU]]
+- Lesson: [[../../3-Resources/Lessons/2026-09-24-pyinstaller-macos-bundle-version-plist|PyInstaller macOS bundle version]]
+- Git tip `1a129a2` (Finder version 0.0.0 fix)
 - Hardware context: Linux dual **5060 Ti** (~32 GB total VRAM) for remote Ollama

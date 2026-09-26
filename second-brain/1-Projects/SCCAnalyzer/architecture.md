@@ -1,25 +1,47 @@
 ---
 type: project
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-24
 tags: [sccanalyzer, architecture]
 project: SCCAnalyzer
 ---
 
 # SCCAnalyzer — product architecture
 
+> **READ-ONLY EXAMPLE for other workspaces.** Do not modify SCCAnalyzer when applying
+> these patterns elsewhere — map ideas to the **current** codebase.
+
 ## High-level shape
 
-```
-┌─────────────────────┐     ntfy {topic}_cmd      ┌──────────────────────────┐
-│ Android companion   │ ─────────────────────────►│ Desktop (Mac or Linux)   │
-│ Agent / Alerts /    │                           │ RemoteAnalysisQueue      │
-│ Reports / Markets   │ ◄─────────────────────────│ TaskManager + Ollama     │
-│ (terminalMode)      │   signed JSON on {topic}  │ Heartbeat v3 + RAG       │
-└─────────────────────┘                           └──────────────────────────┘
+```mermaid
+flowchart LR
+    subgraph android [Android_terminal]
+        UI[Agent_Alerts_Markets_Reports]
+        RC[RemoteCommandClient]
+    end
+    subgraph ntfy [ntfy]
+        CmdTopic[topic_cmd]
+        MainTopic[topic]
+    end
+    subgraph desktop [Mac_or_Linux]
+        RQ[RemoteAnalysisQueue]
+        TM[TaskManager_Ollama]
+        HB[Heartbeat_v3]
+        KB[knowledge_db]
+    end
+    UI --> RC
+    RC -->|Bearer| CmdTopic
+    CmdTopic --> RQ
+    RQ --> TM
+    TM --> HB
+    TM --> KB
+    TM -->|HMAC_JSON| MainTopic
+    MainTopic --> UI
 ```
 
 **Principle:** Phone is a **remote terminal**; desktop is the **always-on brain**.
+
+Keep-awake compares venvs via `sys.prefix`, not `os.path.samefile(executable)`. GUI must not start a second `{topic}_cmd` SSE listener when the systemd remote-queue unit is already active.
 
 ## Layers
 

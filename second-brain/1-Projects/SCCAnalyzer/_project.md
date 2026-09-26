@@ -1,16 +1,22 @@
 ---
 type: project
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-24
 tags: [sccanalyzer, status]
 project: SCCAnalyzer
 ---
 
 # SCCAnalyzer — current status
 
+> **READ-ONLY EXAMPLE for other workspaces.** Agents working in a different app must
+> **not** edit this repo or its files. Use notes under `3-Resources/Lessons/` as patterns
+> to apply in the **current** project. Only change SCCAnalyzer when the user’s workspace
+> **is** SCCAnalyzer or they explicitly asked.
+
 **Repo:** `/Users/philipkim/Documents/SCCAnalyzer`  
 **Branch (this Mac):** `MacOS` @ `ee93ddd`  
-**Keep aligned:** `MacOS` / `Ubuntu` / `Android`
+**Keep aligned:** `MacOS` / `Ubuntu` / `Android`  
+**Repo `memory-bank/`:** last detailed sync 2026-09-19 (`b6a9386`, Android **1.10.0**). Live git/this vault are ahead (Heartbeat weekend fix + Android **1.10.1**). Do not copy bank versions over this note.
 
 ## Versions
 

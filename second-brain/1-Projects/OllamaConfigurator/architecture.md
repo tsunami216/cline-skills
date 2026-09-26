@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-24
 tags: [ollama, architecture]
 project: OllamaConfigurator
 ---

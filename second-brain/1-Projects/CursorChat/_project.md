@@ -1,7 +1,7 @@
 ---
 type: project
 created: 2026-09-20
-updated: 2026-09-20
+updated: 2026-09-24
 tags: [cursor-chat, android, compose, cloud-agents]
 project: CursorChat
 ---
@@ -51,4 +51,4 @@ Native **Jetpack Compose** chat client for Cursor Cloud Agents. User pastes a Cu
 
 - [[architecture]] → `architecture.md` (this folder)
 - Lessons under `../../3-Resources/Lessons/` (Cloud Agents + Android)
-- Repo memory: `.memory-bank/` (and extra Cline-style `memory-bank/` snapshot)
+- Repo memory: `.memory-bank/` (lessons + status) **and** Cline-style `memory-bank/` (six-file snapshot). Git tip `f60558e` (background runs + network recover). `.memory-bank/status.md` still says 1.0.16 in places — treat **1.0.17 / 18** as shipped.
